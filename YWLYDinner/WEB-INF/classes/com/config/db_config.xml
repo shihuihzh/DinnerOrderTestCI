@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- 数据库配置文件 -->
 <db>
 	<driver-class>com.mysql.jdbc.Driver</driver-class>
-	<url><![CDATA[jdbc:mysql://127.0.0.1:3306/dinner?useUnicode=true&characterEncoding=utf8]]></url>
-	<user-name>root</user-name>
-	<user-password>root</user-password>
+	<url><![CDATA[jdbc:mysql://10.10.26.58:3306/zLOqJlTnRNQ7gCIS?useUnicode=true&characterEncoding=utf8]]></url>
+	<user-name>u0hIx5GXKZ3uzqja</user-name>
+	<user-password>pd756UAFuaWqEV84S</user-password>
 </db>
