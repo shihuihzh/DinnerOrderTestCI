@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+<welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+
+  
+<!-- 以下是Filter过滤器部分 -->
+	<!-- 字符编码过滤器 -->
+  <filter>
+  	<filter-name>encoding</filter-name>
+  	<filter-class>com.util.SetChracter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>ignore</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  </filter>
+  
+	<!-- 以下是访问权限过滤器部分 -->  
+  <filter>
+  	<filter-name>login</filter-name>
+  	<filter-class>com.operator.manager.ctrl.LoginFilter</filter-class>
+  </filter>
+ 
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+  	<url-pattern>/operator/manager.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+  	<url-pattern>/operator/loginsuccess.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+  	<url-pattern>/operator/query</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+  	<url-pattern>/operator/loginsuccess.jsp</url-pattern>
+  </filter-mapping> 
+
+  <filter-mapping>
+  	<filter-name>encoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+<!-- 以下是Servlet部分 -->
+	<!-- 运营商子系统部分 -->
+  <servlet>
+  	<servlet-name>loginS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.OperatorLoginCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>insertS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.InsertResCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>queryS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.QueryAllResCtrl</servlet-class>
+  </servlet>
+    
+  <servlet>
+  	<servlet-name>queryResDetail</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.QueryResDetailCtrl</servlet-class>
+  </servlet>
+    
+  <servlet>
+  	<servlet-name>queryKeyS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.QueryKeyCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>deleteS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.DeleteResCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>updateS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.UpdateResInfoCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>updatePassS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.UpdateOperatorPassCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>updatePasswordS</servlet-name>
+  	<servlet-class>com.operator.manager.ctrl.UpdateOperatorPasswordCtrl</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>loginS</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>insertS</servlet-name>
+  	<url-pattern>/insert</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>queryS</servlet-name>
+  	<url-pattern>/query</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet-mapping>
+  	<servlet-name>queryResDetail</servlet-name>
+  	<url-pattern>/queryresdetail</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+  	<servlet-name>queryKeyS</servlet-name>
+  	<url-pattern>/querykey</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>deleteS</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>updateS</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>updatePassS</servlet-name>
+  	<url-pattern>/updatepass</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>updatePasswordS</servlet-name>
+  	<url-pattern>/updatepassword</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- 餐馆子系统部分 -->
+  	<!-- 订单管理部分 -->
+  <servlet>
+  	<servlet-name>queryOS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.QueryAllOrderCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>updateOS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.UpdateOrderCtrl</servlet-class>
+  </servlet>
+  
+  <!-- 
+  <servlet>
+  	<servlet-name>deleteOS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.DeleteOrderCtrl</servlet-class>
+  </servlet>
+   -->
+   
+  <servlet>
+  	<servlet-name>queryOMS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.QueryManagerCtrl</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>queryOIDS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.QueryOrderIDCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>queryDetailS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.QueryOrderDetailCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>queryOKeyIDS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.QueryKeyIDCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>totalPriceS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.TotalPriceCtrl</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>totalQueryS</servlet-name>
+  	<servlet-class>com.restaurant.order_manager.ctrl.TotalPriceQueryCtrl</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>queryOS</servlet-name>
+  	<url-pattern>/queryorder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>updateOS</servlet-name>
+  	<url-pattern>/updateorder</url-pattern>
+  </servlet-mapping> 
+  
+  <!--  
+  <servlet-mapping>
+  	<servlet-name>deleteOS</servlet-name>
+  	<url-pattern>/deleteorder</url-pattern>
+  </servlet-mapping>
+   -->
+   
+  <servlet-mapping>
+  	<servlet-name>queryOMS</servlet-name>
+  	<url-pattern>/querymanager</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>queryOIDS</servlet-name>
+  	<url-pattern>/queryid</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>queryDetailS</servlet-name>
+  	<url-pattern>/querydetail</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>queryOKeyIDS</servlet-name>
+  	<url-pattern>/querykeyid</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>totalPriceS</servlet-name>
+  	<url-pattern>/total</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>totalQueryS</servlet-name>
+  	<url-pattern>/totalquery</url-pattern>
+  </servlet-mapping>
+  <!-- 以上部分是逸新部分 -->
+  <!-- ＝＝＝＝＝＝＝＝＝＝    华丽的分割线    ＝＝＝＝＝＝＝＝＝＝ -->
+  
+  
+	
+	
+  <servlet>
+    <servlet-name>InsertCtrl</servlet-name>
+    <servlet-class>com.user.info_manager.ctrl.InsertCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginCtrl</servlet-name>
+    <servlet-class>com.user.info_manager.ctrl.LoginCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryCtrl</servlet-name>
+    <servlet-class>com.user.info_manager.ctrl.QueryCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateCtrl</servlet-name>
+    <servlet-class>com.user.info_manager.ctrl.UpdateCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ResQueryCtrl</servlet-name>
+    <servlet-class>com.user.res_query.Ctrl.ResQueryCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ResQueryBySelectCtrl</servlet-name>
+    <servlet-class>com.user.res_query.Ctrl.ResQueryBySelectCtrl</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>QueryResMenuDetailLi</servlet-name>
+  	<servlet-class>com.user.res_query.Ctrl.QueryResMenuDetail</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>MenuQueryCtrlLi</servlet-name>
+	<servlet-class>com.user.menu_query.ctrl.MenuQueryCtrl</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>InsertMessageCtrlLi</servlet-name>
+	<servlet-class>com.user.message_manager.ctrl.InsertCtrl</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>QueryResMessageCtrlLi</servlet-name>
+  	<servlet-class>com.user.message_manager.ctrl.QueryResMessageCtrl</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>QueryMessageCtrlLi</servlet-name>
+	<servlet-class>com.user.message_manager.ctrl.QueryCtrl</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>DeleteOrderCtrlLi</servlet-name>
+	<servlet-class>com.user.order_manager.ctrl.DeleteOrderCtrl</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>InsertOrderCtrlLi</servlet-name>
+	<servlet-class>com.user.order_manager.ctrl.InsertOrderCtrl</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>QueryOrderCtrlLi</servlet-name>
+	<servlet-class>com.user.order_manager.ctrl.QueryOrderCtrl</servlet-class>
+  </servlet>
+  <servlet>
+	<servlet-name>UpdateOrderCtrlLi</servlet-name>
+	<servlet-class>com.user.order_manager.ctrl.UpdateOrderCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddDishCtrl</servlet-name>
+    <servlet-class>com.user.car_manager.ctrl.AddDishCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>updateCarCtrl</servlet-name>
+    <servlet-class>com.user.car_manager.ctrl.updateCarCtrl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteCarCtrl</servlet-name>
+    <servlet-class>com.user.car_manager.ctrl.DeleteCarCtrl</servlet-class>
+  </servlet> 
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CleanCarCtrl</servlet-name>
+    <servlet-class>com.user.car_manager.ctrl.CleanCarCtrl</servlet-class>
+  </servlet>
+  
+  
+  
+   
+   
+ <servlet>
+  <servlet-name>deletedish</servlet-name>
+  <servlet-class>com.restaurant.menu_manager.ctrl.DeleteDish</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>insertdish</servlet-name>
+  <servlet-class>com.restaurant.menu_manager.ctrl.InsertDish</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>querydish</servlet-name>
+  <servlet-class>com.restaurant.menu_manager.ctrl.QueryAllDish</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>updatedish</servlet-name>
+  <servlet-class>com.restaurant.menu_manager.ctrl.UpdateDish</servlet-class>
+  </servlet>
+   <servlet>
+     <servlet-name>updateResInfo</servlet-name>
+     <servlet-class>com.restaurant.res_manager.ctrl.UpdateResInfo</servlet-class>
+  </servlet>
+   <servlet>
+     <servlet-name>queryResInfo</servlet-name>
+     <servlet-class>com.restaurant.res_manager.ctrl.QueryResInfo</servlet-class>
+  </servlet>
+   <servlet>
+     <servlet-name>resLogin</servlet-name>
+     <servlet-class>com.restaurant.res_manager.ctrl.ResLogin</servlet-class>
+  </servlet>
+   <servlet>
+     <servlet-name>updateResPass</servlet-name>
+     <servlet-class>com.restaurant.res_manager.ctrl.UpdateResPass</servlet-class>
+  </servlet>
+ <servlet>
+  <servlet-name>insertMessage</servlet-name>
+  <servlet-class>com.restaurant.message_manager.ctrl.InsertCtrl</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>queryMessage</servlet-name>
+  <servlet-class>com.restaurant.message_manager.ctrl.QueryCtrl</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>deleteMessage</servlet-name>
+  <servlet-class>com.restaurant.message_manager.ctrl.DeleteCtrl</servlet-class>
+  </servlet>
+  
+
+  
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>InsertCtrl</servlet-name>
+    <url-pattern>/J_InsertUserCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginCtrl</servlet-name>
+    <url-pattern>/J_User_LoginCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryCtrl</servlet-name>
+    <url-pattern>/J_User_Query_Self_Ctrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateCtrl</servlet-name>
+    <url-pattern>/J_UpdateSelfCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ResQueryCtrl</servlet-name>
+    <url-pattern>/J_ResQueryCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ResQueryBySelectCtrl</servlet-name>
+    <url-pattern>/J_ResQueryBySelectCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>QueryResMenuDetailLi</servlet-name>
+  	<url-pattern>/queryResMenuDetailLi</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>MenuQueryCtrlLi</servlet-name>
+  	<url-pattern>/menuQueryCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsertMessageCtrlLi</servlet-name>
+  	<url-pattern>/insertMessageCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>QueryMessageCtrlLi</servlet-name>
+  	<url-pattern>/queryMessageCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>QueryResMessageCtrlLi</servlet-name>
+  	<url-pattern>/queryResMessageCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteOrderCtrlLi</servlet-name>
+  	<url-pattern>/deleteOrderCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsertOrderCtrlLi</servlet-name>
+  	<url-pattern>/insertOrderCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>QueryOrderCtrlLi</servlet-name>
+  	<url-pattern>/queryOrderCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateOrderCtrlLi</servlet-name>
+  	<url-pattern>/UpdateOrderCtrlLi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddDishCtrl</servlet-name>
+    <url-pattern>/J_AddDishCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updateCarCtrl</servlet-name>
+    <url-pattern>/J_updateCarCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteCarCtrl</servlet-name>
+    <url-pattern>/J_DeleteCarCtrl</url-pattern>   
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>CleanCarCtrl</servlet-name>
+    <url-pattern>/J_CleanCarCtrl</url-pattern>
+  </servlet-mapping>
+  
+  
+ 
+    
+  
+  
+<servlet-mapping>
+     <servlet-name>updateResInfo</servlet-name>
+     <url-pattern>/updateResInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>queryResInfo</servlet-name>
+     <url-pattern>/queryResInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>resLogin</servlet-name>
+     <url-pattern>/resLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+     <servlet-name>updateResPass</servlet-name>
+     <url-pattern>/updateResPass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+   <servlet-name>deletedish</servlet-name>
+   <url-pattern>/deleteDish</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+   <servlet-name>insertdish</servlet-name>
+   <url-pattern>/insertDish</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+   <servlet-name>querydish</servlet-name>
+   <url-pattern>/queryDish</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+   <servlet-name>updatedish</servlet-name>
+   <url-pattern>/updateDish</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>insertMessage</servlet-name>
+  <url-pattern>/insertMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>queryMessage</servlet-name>
+  <url-pattern>/queryMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>deleteMessage</servlet-name>
+  <url-pattern>/deleteMessage</url-pattern>
+  </servlet-mapping>
+ 
+ 
+</web-app>

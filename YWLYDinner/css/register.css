@@ -1,0 +1,92 @@
+#emailRight {
+	display:none;
+}
+#emailFormat {
+	display:none;
+	color:#FF0000;
+}
+#emailExist {
+	display:none;
+	color:#FF0000;
+}
+#nameRight {
+	display:none;
+}
+#nameFormat {
+	display:none;
+	color:#FF0000;
+}
+#nameExist {
+	display:none;
+	color:#FF0000;
+}
+#passwordRight {
+	display:none;
+}
+#passwordFormat {
+	display:none;
+	color:#FF0000;
+}
+#rePasswordRight {
+	display:none;
+}
+#rePasswordFormat {
+	display:none;
+	color:#FF0000;
+}
+#passwordLevel {
+	display:none;
+}
+#levelLow {
+	display:none;
+	margin-left:10px;
+}
+#levelMiddle {
+	display:none;
+	margin-left:10px;
+}
+#levelHigh {
+	display:none;
+	margin-left:10px;
+}
+#phoneRight {
+	display:none;
+}
+#phoneFormat {
+	display:none;
+	color:#FF0000;
+}
+#addressRight {
+	display:none;
+	margin-left:10px;
+}
+#addressFormat {
+	display:none;
+	margin-left:10px;
+}
+#questionFormat {
+	display:none;
+	color:#FF0000;
+}
+#questionRight {
+	display:none;
+	color:#FF0000;
+}
+#questionFormat {
+	display:none;
+	color:#FF0000;
+}
+#answerRight {
+	display:none;
+}
+#answerFormat {
+	display:none;
+	color:#FF0000;
+}
+#codeRight {
+	display:none;
+}
+#codeFormat {
+	display:none;
+	color:#FF0000;
+}
